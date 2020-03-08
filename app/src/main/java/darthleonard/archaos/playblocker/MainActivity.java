@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -15,9 +17,12 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.ToggleButton;
 
+import java.util.List;
+
 import darthleonard.archaos.playblocker.locker.PlayBlockerService;
 import darthleonard.archaos.playblocker.model.AppItemAdapter;
 import darthleonard.archaos.playblocker.model.AppLoader;
+import darthleonard.archaos.playblocker.model.AppLoaderArgs;
 
 public class MainActivity extends AppCompatActivity {
     public static final String KEY_AUTHENTICATED = "auth";
@@ -30,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         ValidateOpen();
         setContentView(R.layout.activity_main);
         initComponents();
-        new AppLoader(this, adapter, pbLoadingApps).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+        loadApps();
     }
 
     @Override
@@ -51,6 +56,19 @@ public class MainActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void loadApps() {
+        PackageManager pm = getPackageManager();
+        List<ApplicationInfo> packages = pm.getInstalledApplications(PackageManager.GET_META_DATA);
+        pbLoadingApps.setMax(packages.size());
+        AppLoaderArgs args = new AppLoaderArgs();
+        args.PackageName = getPackageName();
+        args.Adapter = adapter;
+        args.ProgressBar = pbLoadingApps;
+        args.PackageManager = pm;
+        args.Packages = packages;
+        new AppLoader(args).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
     }
 
     private void ValidateOpen() {
