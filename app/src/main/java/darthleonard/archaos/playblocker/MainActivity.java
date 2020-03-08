@@ -19,6 +19,7 @@ import android.widget.ToggleButton;
 
 import java.util.List;
 
+import darthleonard.archaos.playblocker.database.DBConfigManager;
 import darthleonard.archaos.playblocker.locker.PlayBlockerService;
 import darthleonard.archaos.playblocker.model.AppItemAdapter;
 import darthleonard.archaos.playblocker.model.AppLoader;
@@ -90,8 +91,10 @@ public class MainActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     startService(new Intent(MainActivity.this, PlayBlockerService.class));
+                    new DBConfigManager(getApplicationContext()).Service(1);
                 } else {
                     stopService(new Intent(MainActivity.this, PlayBlockerService.class));
+                    new DBConfigManager(getApplicationContext()).Service(0);
                 }
             }
         });
