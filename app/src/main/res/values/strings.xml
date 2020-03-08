@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">PlayBlocker</string>
+    <string name="serviceState">Estado del servicio</string>
+    <string name="access">Acceso</string>
+    <string name="save">Guardar</string>
+    <string name="title_activity_auth">Contraseña</string>
+    <string name="passwordNew">Nueva contraseña</string>
+    <string name="passwordConfirm">Confirmar contraseña</string>
+    <string name="passwordMismatch">Las contraseñas no coinciden</string>
 </resources>
