@@ -15,8 +15,8 @@ import darthleonard.archaos.playblocker.AccessActivity;
 import darthleonard.archaos.playblocker.R;
 
 public class Notifier {
-    public static final String NOTIFICATION_CHANNEL_ID_SERVICE = "darthleonard.playblocker.service";
-    public static final String NOTIFICATION_CHANNEL_ID_INFO = "darthleonard.playblocker.info";
+    public static final String NOTIFICATION_CHANNEL_ID_SERVICE = "darthleonard.archaos.playblocker.service";
+    public static final String NOTIFICATION_CHANNEL_ID_INFO = "darthleonard.archaos.playblocker.info";
 
     private Service service;
 
@@ -50,8 +50,8 @@ public class Notifier {
         return new NotificationCompat.Builder(service, NOTIFICATION_CHANNEL_ID_INFO)
                 .setContentIntent(pendingIntent)
                 .setWhen(System.currentTimeMillis())
-                .setContentTitle("PlayBloquer")
+                .setContentTitle("PlayBlocker")
                 .setContentText("Blocking apps")
-                .setSmallIcon(R.mipmap.ic_launcher_foreground);
+                /*.setSmallIcon(R.mipmap.ic_launcher_foreground)*/;
     }
 }

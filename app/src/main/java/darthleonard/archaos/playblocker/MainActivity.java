@@ -15,6 +15,7 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.ToggleButton;
 
+import darthleonard.archaos.playblocker.locker.PlayBlockerService;
 import darthleonard.archaos.playblocker.model.AppItemAdapter;
 import darthleonard.archaos.playblocker.model.AppLoader;
 
