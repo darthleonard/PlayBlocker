@@ -25,6 +25,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service android:name="darthleonard.archaos.playblocker.locker.PlayBlockerService" />
     </application>
 
 </manifest>

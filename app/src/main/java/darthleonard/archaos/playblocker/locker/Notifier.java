@@ -52,6 +52,6 @@ public class Notifier {
                 .setWhen(System.currentTimeMillis())
                 .setContentTitle("PlayBlocker")
                 .setContentText("Blocking apps")
-                /*.setSmallIcon(R.mipmap.ic_launcher_foreground)*/;
+                .setSmallIcon(R.mipmap.ic_launcher_round);
     }
 }
