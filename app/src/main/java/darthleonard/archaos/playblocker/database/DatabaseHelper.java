@@ -16,7 +16,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     static final String DB_NAME = "playblocker.db";
     public static final String AUTH_PSW = "Psw";
     public static final String CONFIG_SERVICE_STATUS = "ServiceStatus";
-    static final int DB_VERSION = 3;
+    static final int DB_VERSION = 1;
 
     public DatabaseHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
