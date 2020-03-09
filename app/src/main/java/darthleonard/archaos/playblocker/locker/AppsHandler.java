@@ -6,7 +6,6 @@ import android.app.usage.UsageStatsManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.util.Log;
 
 import java.util.List;
 import java.util.SortedMap;
@@ -36,14 +35,12 @@ public class AppsHandler  extends AsyncTask<Void, Void, Void> {
         return null;
     }
 
-    /**
-     * Scans the used <i>packages</i> in the last 5 seconds and sorts it.
-     * If the last used is the PACKAGE_NAME, calls kill function.
-     */
     private void AppScanner() {
         UsageStatsManager usageStatsManager = (UsageStatsManager) service.getSystemService(Context.USAGE_STATS_SERVICE);
         long time = System.currentTimeMillis();
-        List<UsageStats> stats = usageStatsManager.queryUsageStats(UsageStatsManager.INTERVAL_DAILY, time - 1000 * 5, time);
+        List<UsageStats> stats = usageStatsManager.queryUsageStats(
+                UsageStatsManager.INTERVAL_DAILY,
+                time - 1000 * 5, time);
 
         if (stats == null) {
             return;
@@ -62,9 +59,7 @@ public class AppsHandler  extends AsyncTask<Void, Void, Void> {
                 db.Update(currentPackage, 0);
             }
             if(db.Exist(packageName) && db.IsAppLocked(packageName)) {
-                //killApp(packageName);
                 currentPackage = packageName;
-                Log.e("applock", "requesting auth to " + currentPackage);
                 LaunchAccessActivity(packageName);
             }
             db.Close();
