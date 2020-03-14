@@ -3,8 +3,15 @@
     <string name="serviceState">Estado del servicio</string>
     <string name="access">Acceso</string>
     <string name="save">Guardar</string>
+    <string name="accept">Aceptar</string>
     <string name="title_activity_auth">Contraseña</string>
     <string name="passwordNew">Nueva contraseña</string>
     <string name="passwordConfirm">Confirmar contraseña</string>
     <string name="passwordMismatch">Las contraseñas no coinciden</string>
+    <string name="permissionNeeded">Permiso necesario</string>
+    <string name="permissionMessage">
+        Necesito acceso a los datos de uso, los utilizare para saber si puedo bloquear las
+        aplicaciones que selecciones. \n\n
+        Puedes activarlos desde el menu de opciones.
+    </string>
 </resources>
