@@ -50,8 +50,8 @@ public class Notifier {
         return new NotificationCompat.Builder(service, NOTIFICATION_CHANNEL_ID_INFO)
                 .setContentIntent(pendingIntent)
                 .setWhen(System.currentTimeMillis())
-                .setContentTitle("PlayBlocker")
-                .setContentText("Blocking apps")
+                .setContentTitle(service.getResources().getString(R.string.app_name))
+                .setContentText(service.getResources().getString(R.string.blockingApps))
                 .setSmallIcon(R.drawable.ic_lock_outline_black_24dp);
     }
 }

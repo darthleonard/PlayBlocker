@@ -14,4 +14,7 @@
         aplicaciones que selecciones. \n\n
         Puedes activarlos desde el menu de opciones.
     </string>
+    <string name="password">Contraseña</string>
+    <string name="usageAccess">Acceso a datos de uso</string>
+    <string name="blockingApps">Bloqueando apps</string>
 </resources>
