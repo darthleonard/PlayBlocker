@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PlayBlocker</string>
+    <string name="serviceState">Service status</string>
+    <string name="access">Access</string>
+    <string name="save">Save</string>
+    <string name="accept">Accept</string>
+    <string name="title_activity_auth">Password</string>
+    <string name="passwordNew">New Password</string>
+    <string name="passwordConfirm">Confirm Password</string>
+    <string name="passwordMismatch">Passwords do not match</string>
+    <string name="permissionNeeded">Permission needed</string>
+    <string name="password">Password</string>
+    <string name="usageAccess">Allow Usage Access</string>
+    <string name="blockingApps">Blocking apps</string>
+    <string name="permissionMessage">
+        I need access to usage access service, I will use it to know if I can block the
+        applications you select. \n\n
+        You can activate it from the options menu
+    </string>
+</resources>
