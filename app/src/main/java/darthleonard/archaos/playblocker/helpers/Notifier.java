@@ -1,4 +1,4 @@
-package darthleonard.archaos.playblocker.locker;
+package darthleonard.archaos.playblocker.helpers;
 
 import android.app.Notification;
 import android.app.NotificationChannel;

@@ -4,6 +4,8 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 
+import darthleonard.archaos.playblocker.helpers.Notifier;
+
 public class PlayBlockerService extends Service {
     public static final int NOTIFICATION_ID = 31;
     private AppsHandler appsHandler;
