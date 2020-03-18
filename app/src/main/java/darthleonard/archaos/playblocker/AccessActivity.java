@@ -1,13 +1,15 @@
 package darthleonard.archaos.playblocker;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import darthleonard.archaos.playblocker.database.DBAppManager;
 import darthleonard.archaos.playblocker.database.DBAuthManager;
@@ -31,17 +33,18 @@ public class AccessActivity extends AppCompatActivity {
         }
         db.Close();
 
+        EditText editText = (EditText) findViewById(R.id.etPassword);
+        editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                validatePassword();
+                return true;
+            }
+        });
+
         findViewById(R.id.btnAccess).setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                EditText editText = findViewById(R.id.etPassword);
-                DBAuthManager db = new DBAuthManager(getApplicationContext());
-                db.Open();
-                if(db.IsPasswordValid(editText.getText().toString())) {
-                    GrantAccess();
-                } else {
-                    editText.setText("");
-                }
-                db.Close();
+                validatePassword();
             }
         });
     }
@@ -52,6 +55,18 @@ public class AccessActivity extends AppCompatActivity {
             killApp(getIntent().getExtras().getString(KEY_PACKAGE_NAME));
         }
         super.onPause();
+    }
+
+    private void validatePassword() {
+        EditText editText = findViewById(R.id.etPassword);
+        DBAuthManager db = new DBAuthManager(getApplicationContext());
+        db.Open();
+        if(db.IsPasswordValid(editText.getText().toString())) {
+            GrantAccess();
+        } else {
+            editText.setText("");
+        }
+        db.Close();
     }
 
     private void OpenSettingsActivity() {
