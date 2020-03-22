@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name">PlayBlocker</string>
     <string name="serviceState">Service status</string>
-    <string name="access">Access</string>
     <string name="save">Save</string>
     <string name="accept">Accept</string>
     <string name="title_activity_auth">Password</string>

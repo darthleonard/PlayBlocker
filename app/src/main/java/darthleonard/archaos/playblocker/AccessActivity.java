@@ -4,8 +4,12 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -34,6 +38,7 @@ public class AccessActivity extends AppCompatActivity {
         db.Close();
 
         EditText editText = (EditText) findViewById(R.id.etPassword);
+        editText.requestFocus();
         editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -41,12 +46,7 @@ public class AccessActivity extends AppCompatActivity {
                 return true;
             }
         });
-
-        findViewById(R.id.btnAccess).setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                validatePassword();
-            }
-        });
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
     }
 
     @Override
