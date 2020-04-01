@@ -7,6 +7,8 @@
     <string name="passwordNew">Nueva contraseña</string>
     <string name="passwordConfirm">Confirmar contraseña</string>
     <string name="passwordMismatch">Las contraseñas no coinciden</string>
+    <string name="passwordShort">La contraseña debe contener mas de 2 caracteres</string>
+    <string name="passwordLong">La contraseña debe contener menos de 11 caracteres</string>
     <string name="permissionNeeded">Permiso necesario</string>
     <string name="permissionMessage">
         Necesito acceso a los datos de uso, los utilizare para saber si puedo bloquear las
