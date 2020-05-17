@@ -1,6 +1,5 @@
 package darthleonard.archaos.playblocker.model;
 
-import android.app.Activity;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.widget.ProgressBar;
