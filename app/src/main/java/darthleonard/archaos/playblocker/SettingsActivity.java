@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -41,6 +42,8 @@ public class SettingsActivity extends AppCompatActivity {
                 }
             }
         });
+        findViewById(R.id.etPasswordNew).requestFocus();
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
     }
 
     public boolean validatePassword(String passwordNew, String passwordConfirm) {

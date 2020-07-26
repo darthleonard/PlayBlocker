@@ -20,14 +20,15 @@
         android:textColor="@color/colorAccent"
         android:backgroundTint="@color/colorAccent"
         android:gravity="center"
-        android:textSize="100sp"
+        android:textSize="60sp"
         android:ems="10"
         android:enabled="false"
         android:inputType="numberPassword" />
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:gravity="center_vertical">
 
         <TableRow
             android:layout_width="match_parent"
