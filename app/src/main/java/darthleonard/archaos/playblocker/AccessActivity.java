@@ -12,6 +12,7 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -36,17 +37,6 @@ public class AccessActivity extends AppCompatActivity {
             finish();
         }
         db.Close();
-
-        EditText editText = (EditText) findViewById(R.id.etPassword);
-        editText.requestFocus();
-        editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                validatePassword();
-                return true;
-            }
-        });
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
     }
 
     @Override
@@ -55,6 +45,27 @@ public class AccessActivity extends AppCompatActivity {
             killApp(getIntent().getExtras().getString(KEY_PACKAGE_NAME));
         }
         super.onPause();
+    }
+
+    public void onNumberClick(View view) {
+        TextView aux = (TextView)(view);
+        CharSequence input = aux.getText();
+        EditText editText = findViewById(R.id.etPassword);
+        editText.append(input);
+    }
+
+    public void onDeleteClick(View view) {
+        EditText editText = findViewById(R.id.etPassword);
+        CharSequence sequence = editText.getText();
+        if(sequence.length() == 0) {
+            return;
+        }
+        sequence = sequence.subSequence(0, sequence.length() - 1);
+        editText.setText(sequence);
+    }
+
+    public void onDoneClick(View view) {
+        validatePassword();
     }
 
     private void validatePassword() {
