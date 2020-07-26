@@ -17,10 +17,181 @@
         android:id="@+id/etPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"
+        android:backgroundTint="@color/colorAccent"
         android:gravity="center"
-        android:textSize="100sp"
+        android:textSize="60sp"
         android:ems="10"
-        android:imeOptions="actionGo"
+        android:enabled="false"
         android:inputType="numberPassword" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp">
+            <LinearLayout android:layout_weight="1"
+                android:gravity="center">
+                <TextView android:text="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:background="@drawable/circle"
+                android:gravity="center"
+                android:onClick="onNumberClick"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_weight="1"
+                android:gravity="center">
+                <TextView android:text="2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="30sp"
+                    android:textAlignment="center"
+                    android:background="@drawable/circle"
+                    android:gravity="center"
+                    android:onClick="onNumberClick"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_weight="1"
+                android:gravity="center">
+                <TextView android:text="3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="30sp"
+                    android:textAlignment="center"
+                    android:background="@drawable/circle"
+                    android:gravity="center"
+                    android:onClick="onNumberClick"/>
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp">
+            <LinearLayout android:layout_weight="1"
+                android:gravity="center">
+                <TextView android:text="4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="30sp"
+                    android:textAlignment="center"
+                    android:background="@drawable/circle"
+                    android:gravity="center"
+                    android:onClick="onNumberClick"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_weight="1"
+                android:gravity="center">
+                <TextView android:text="5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="30sp"
+                    android:textAlignment="center"
+                    android:background="@drawable/circle"
+                    android:gravity="center"
+                    android:onClick="onNumberClick"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_weight="1"
+                android:gravity="center">
+                <TextView android:text="6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="30sp"
+                    android:textAlignment="center"
+                    android:background="@drawable/circle"
+                    android:gravity="center"
+                    android:onClick="onNumberClick"/>
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp">
+            <LinearLayout android:layout_weight="1"
+                android:gravity="center">
+                <TextView android:text="7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="30sp"
+                    android:textAlignment="center"
+                    android:background="@drawable/circle"
+                    android:gravity="center"
+                    android:onClick="onNumberClick"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_weight="1"
+                android:gravity="center">
+                <TextView android:text="8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="30sp"
+                    android:textAlignment="center"
+                    android:background="@drawable/circle"
+                    android:gravity="center"
+                    android:onClick="onNumberClick"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_weight="1"
+                android:gravity="center">
+                <TextView android:text="9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="30sp"
+                    android:textAlignment="center"
+                    android:background="@drawable/circle"
+                    android:gravity="center"
+                    android:onClick="onNumberClick"/>
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp">
+            <LinearLayout android:layout_weight="1"
+                android:gravity="center">
+                <TextView android:text=""
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="30sp"
+                    android:textAlignment="center"
+                    android:background="@drawable/button_delete"
+                    android:gravity="center"
+                    android:onClick="onDeleteClick"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_weight="1"
+                android:gravity="center">
+                <TextView android:text="0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="30sp"
+                    android:textAlignment="center"
+                    android:background="@drawable/circle"
+                    android:gravity="center"
+                    android:onClick="onNumberClick"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_weight="1"
+                android:gravity="center">
+
+                <TextView android:text=""
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_done"
+                    android:onClick="onDoneClick"/>
+            </LinearLayout>
+        </TableRow>
+
+    </TableLayout>
 
 </LinearLayout>

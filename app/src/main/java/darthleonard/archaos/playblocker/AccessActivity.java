@@ -4,12 +4,7 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.SystemClock;
-import android.view.KeyEvent;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -21,6 +16,7 @@ import darthleonard.archaos.playblocker.database.DBAuthManager;
 public class AccessActivity extends AppCompatActivity {
     public static final String KEY_PACKAGE_NAME = "PackageName";
 
+    private EditText etPassword;
     private boolean auth;
 
     @Override
@@ -36,17 +32,7 @@ public class AccessActivity extends AppCompatActivity {
             finish();
         }
         db.Close();
-
-        EditText editText = (EditText) findViewById(R.id.etPassword);
-        editText.requestFocus();
-        editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                validatePassword();
-                return true;
-            }
-        });
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+        etPassword = findViewById(R.id.etPassword);
     }
 
     @Override
@@ -57,14 +43,32 @@ public class AccessActivity extends AppCompatActivity {
         super.onPause();
     }
 
+    public void onNumberClick(View view) {
+        TextView tvButton = (TextView)(view);
+        CharSequence input = tvButton.getText();
+        etPassword.append(input);
+    }
+
+    public void onDeleteClick(View view) {
+        CharSequence sequence = etPassword.getText();
+        if(sequence.length() == 0) {
+            return;
+        }
+        sequence = sequence.subSequence(0, sequence.length() - 1);
+        etPassword.setText(sequence);
+    }
+
+    public void onDoneClick(View view) {
+        validatePassword();
+    }
+
     private void validatePassword() {
-        EditText editText = findViewById(R.id.etPassword);
         DBAuthManager db = new DBAuthManager(getApplicationContext());
         db.Open();
-        if(db.IsPasswordValid(editText.getText().toString())) {
+        if(db.IsPasswordValid(etPassword.getText().toString())) {
             GrantAccess();
         } else {
-            editText.setText("");
+            etPassword.setText("");
         }
         db.Close();
     }
