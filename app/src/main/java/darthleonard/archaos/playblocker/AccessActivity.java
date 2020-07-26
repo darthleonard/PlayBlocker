@@ -16,6 +16,7 @@ import darthleonard.archaos.playblocker.database.DBAuthManager;
 public class AccessActivity extends AppCompatActivity {
     public static final String KEY_PACKAGE_NAME = "PackageName";
 
+    private EditText etPassword;
     private boolean auth;
 
     @Override
@@ -31,6 +32,7 @@ public class AccessActivity extends AppCompatActivity {
             finish();
         }
         db.Close();
+        etPassword = findViewById(R.id.etPassword);
     }
 
     @Override
@@ -42,20 +44,18 @@ public class AccessActivity extends AppCompatActivity {
     }
 
     public void onNumberClick(View view) {
-        TextView aux = (TextView)(view);
-        CharSequence input = aux.getText();
-        EditText editText = findViewById(R.id.etPassword);
-        editText.append(input);
+        TextView tvButton = (TextView)(view);
+        CharSequence input = tvButton.getText();
+        etPassword.append(input);
     }
 
     public void onDeleteClick(View view) {
-        EditText editText = findViewById(R.id.etPassword);
-        CharSequence sequence = editText.getText();
+        CharSequence sequence = etPassword.getText();
         if(sequence.length() == 0) {
             return;
         }
         sequence = sequence.subSequence(0, sequence.length() - 1);
-        editText.setText(sequence);
+        etPassword.setText(sequence);
     }
 
     public void onDoneClick(View view) {
@@ -63,13 +63,12 @@ public class AccessActivity extends AppCompatActivity {
     }
 
     private void validatePassword() {
-        EditText editText = findViewById(R.id.etPassword);
         DBAuthManager db = new DBAuthManager(getApplicationContext());
         db.Open();
-        if(db.IsPasswordValid(editText.getText().toString())) {
+        if(db.IsPasswordValid(etPassword.getText().toString())) {
             GrantAccess();
         } else {
-            editText.setText("");
+            etPassword.setText("");
         }
         db.Close();
     }
