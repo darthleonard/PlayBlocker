@@ -5,6 +5,10 @@
         android:title="@string/usageAccess"
         android:icon="@drawable/action_usage"/>
     <item
+        android:id="@+id/menu_random_sort_buttons"
+        android:title="@string/randomSortButtons"
+        android:icon="@drawable/img_btn_on" />
+    <item
         android:id="@+id/menu_password"
         android:title="@string/password"
         android:icon="@drawable/action_password" />

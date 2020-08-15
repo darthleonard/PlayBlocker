@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -23,6 +24,7 @@ import java.util.List;
 
 import darthleonard.archaos.playblocker.database.DBConfigManager;
 import darthleonard.archaos.playblocker.helpers.PermissionVerifier;
+import darthleonard.archaos.playblocker.helpers.RandomSortButtonActivator;
 import darthleonard.archaos.playblocker.locker.PlayBlockerService;
 import darthleonard.archaos.playblocker.model.AppItemAdapter;
 import darthleonard.archaos.playblocker.model.AppLoader;
@@ -53,6 +55,12 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
         if(menu instanceof MenuBuilder){
+            boolean status = new RandomSortButtonActivator().IsRandomActivated(this);
+            if(status) {
+                menu.findItem(R.id.menu_random_sort_buttons).setIcon(R.drawable.img_btn_on);
+            } else {
+                menu.findItem(R.id.menu_random_sort_buttons).setIcon(R.drawable.img_btn_off);
+            }
             MenuBuilder m = (MenuBuilder) menu;
             m.setOptionalIconsVisible(true);
         }
@@ -64,6 +72,14 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.menu_settings:
                 startActivity(new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS));
+                return true;
+            case R.id.menu_random_sort_buttons:
+                boolean status = new RandomSortButtonActivator().Switch(this);
+                if(status) {
+                    item.setIcon(R.drawable.img_btn_on);
+                } else {
+                    item.setIcon(R.drawable.img_btn_off);
+                }
                 return true;
             case R.id.menu_password:
                 startActivity(new Intent(this, SettingsActivity.class));

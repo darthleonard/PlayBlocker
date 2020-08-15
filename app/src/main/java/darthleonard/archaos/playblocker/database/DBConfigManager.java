@@ -35,4 +35,30 @@ public class DBConfigManager extends DBManager {
         Close();
         return false;
     }
+
+    public boolean IsRandomSortActive() {
+        Open();
+        Cursor cursor = database.rawQuery(
+                "select " + DatabaseHelper.CONFIG_RANDOM_SORT_BUTTONS +
+                        " from "+ DatabaseHelper.TABLE_CONFIG,
+                null);
+        if(cursor.moveToFirst()) {
+            Close();
+            return cursor.getInt(0) == 1;
+        }
+        Close();
+        return false;
+    }
+
+    public void SetRandomSort(int state) {
+        Open();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(DatabaseHelper.CONFIG_RANDOM_SORT_BUTTONS, state);
+        database.update(
+                DatabaseHelper.TABLE_CONFIG,
+                contentValues,
+                null,
+                null);
+        Close();
+    }
 }

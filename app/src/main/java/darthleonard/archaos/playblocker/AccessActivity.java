@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Stack;
+
 import darthleonard.archaos.playblocker.database.DBAppManager;
 import darthleonard.archaos.playblocker.database.DBAuthManager;
 
@@ -23,13 +25,15 @@ public class AccessActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_access);
-
         DBAuthManager db = new DBAuthManager(getApplicationContext());
         db.Open();
         if(db.IsEmpty()) {
             OpenSettingsActivity();
             db.Close();
             finish();
+        }
+        if(db.IsRandomSortActive()) {
+            randomButtons();
         }
         db.Close();
         etPassword = findViewById(R.id.etPassword);
@@ -105,5 +109,34 @@ public class AccessActivity extends AppCompatActivity {
         startMain.addCategory(Intent.CATEGORY_HOME);
         startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(startMain);
+    }
+
+    private void randomButtons() {
+        TextView[] tvButtons = loadButtons();
+        int number;
+        Stack<Integer> stack = new Stack<Integer>();
+        for (int i = 0; i < tvButtons.length ; i++) {
+            number = (int) Math.floor(Math.random() * tvButtons.length );
+            while (stack.contains(number)) {
+                number = (int) Math.floor(Math.random() * tvButtons.length );
+            }
+            stack.push(number);
+            tvButtons[i].setText(String.valueOf(number));
+        }
+    }
+
+    private TextView[] loadButtons() {
+        return new TextView[] {
+                findViewById(R.id.btn0),
+                findViewById(R.id.btn1),
+                findViewById(R.id.btn2),
+                findViewById(R.id.btn3),
+                findViewById(R.id.btn4),
+                findViewById(R.id.btn5),
+                findViewById(R.id.btn6),
+                findViewById(R.id.btn7),
+                findViewById(R.id.btn8),
+                findViewById(R.id.btn9),
+        };
     }
 }

@@ -14,6 +14,7 @@
     <string name="password">Password</string>
     <string name="usageAccess">Allow Usage Access</string>
     <string name="blockingApps">Blocking apps</string>
+    <string name="randomSortButtons">Random sort buttons</string>
     <string name="permissionMessage">
         I need access to usage access service, I will use it to know if I can block the
         applications you select. \n\n
