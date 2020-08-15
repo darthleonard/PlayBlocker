@@ -18,4 +18,5 @@
     <string name="password">Contraseña</string>
     <string name="usageAccess">Acceso a datos de uso</string>
     <string name="blockingApps">Bloqueando apps</string>
+    <string name="randomSortButtons">Botones aleatorios</string>
 </resources>

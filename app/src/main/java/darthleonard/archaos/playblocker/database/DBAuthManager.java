@@ -34,6 +34,17 @@ public class DBAuthManager extends DBManager {
         return app.moveToFirst();
     }
 
+    public boolean IsRandomSortActive() {
+        Cursor cursor = database.rawQuery(
+                "select " + DatabaseHelper.CONFIG_RANDOM_SORT_BUTTONS +
+                        " from "+ DatabaseHelper.TABLE_CONFIG,
+                null);
+        if(cursor.moveToFirst()) {
+            return cursor.getInt(0) == 1;
+        }
+        return false;
+    }
+
     private void InsertPassword(String password) {
         ContentValues contentValue = new ContentValues();
         contentValue.put(DatabaseHelper.AUTH_PSW, password);
