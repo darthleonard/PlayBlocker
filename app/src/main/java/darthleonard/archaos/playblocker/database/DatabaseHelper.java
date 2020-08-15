@@ -17,7 +17,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String AUTH_PSW = "Psw";
     public static final String CONFIG_SERVICE_STATUS = "ServiceStatus";
     public static final String CONFIG_RANDOM_SORT_BUTTONS = "RandomSortButtons";
-    static final int DB_VERSION = 1;
+    static final int DB_VERSION = 2;
 
     public DatabaseHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -57,7 +57,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("create table " + TABLE_CONFIG + "(" +
                 ID + " integer primary key, " +
                 CONFIG_SERVICE_STATUS + " integer," +
-                CONFIG_RANDOM_SORT_BUTTONS + " integer)");
+                CONFIG_RANDOM_SORT_BUTTONS + " integer default 0)");
         InitConfig(db);
     }
 

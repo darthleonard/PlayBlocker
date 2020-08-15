@@ -25,7 +25,6 @@ public class AccessActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_access);
-
         DBAuthManager db = new DBAuthManager(getApplicationContext());
         db.Open();
         if(db.IsEmpty()) {
@@ -33,8 +32,7 @@ public class AccessActivity extends AppCompatActivity {
             db.Close();
             finish();
         }
-        //if(db.IsRandomSortActive()) { uncoment once the DB is updated
-        if(true) {
+        if(db.IsRandomSortActive()) {
             randomButtons();
         }
         db.Close();
