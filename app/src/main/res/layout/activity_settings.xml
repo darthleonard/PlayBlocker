@@ -17,6 +17,7 @@
         android:id="@+id/etPasswordNew"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"
         android:gravity="center"
         android:textSize="100sp"
         android:ems="10"
@@ -33,17 +34,20 @@
         android:id="@+id/etPasswordConfirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"
         android:gravity="center"
         android:textSize="100sp"
         android:ems="10"
         android:inputType="numberPassword" />
 
-    <Button
+    <TextView
         android:id="@+id/btnPasswordUpdate"
-        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginTop="25sp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="25sp"
-        android:text="@string/save" />
+        android:background="@drawable/button_done"
+        android:onClick="onDoneClick"/>
 
     <TextView
         android:id="@+id/tvPasswordMessage"
